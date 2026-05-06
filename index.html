@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Németh Klímatechnika</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#f5f5f5;
+color:#111;
+}
+
+header{
+background:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.logo-area{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+width:70px;
+}
+
+.logo-text h1{
+font-size:30px;
+font-weight:800;
+color:#d90429;
+}
+
+.logo-text p{
+font-size:13px;
+font-weight:600;
+}
+
+nav{
+display:flex;
+gap:30px;
+font-weight:700;
+}
+
+nav a{
+text-decoration:none;
+color:#111;
+transition:.3s;
+}
+
+nav a:hover{
+color:#d90429;
+}
+
+.call-btn{
+background:#d90429;
+color:white;
+padding:15px 28px;
+border-radius:40px;
+text-decoration:none;
+font-weight:700;
+}
+
+.hero{
+min-height:92vh;
+background:url('modern-hero.png');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+padding:70px;
+position:relative;
+}
+
+.hero-box{
+max-width:600px;
+background:rgba(255,255,255,0.82);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:25px;
+box-shadow:0 20px 50px rgba(0,0,0,0.12);
+animation:fadeUp 1s ease;
+}
+
+.hero-box h2{
+font-size:64px;
+line-height:1.05;
+margin-bottom:20px;
+font-weight:800;
+}
+
+.red{
+color:#d90429;
+}
+
+.hero-box p{
+font-size:22px;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 28px;
+border-radius:12px;
+text-decoration:none;
+font-weight:700;
+transition:.3s;
+}
+
+.primary{
+background:#d90429;
+color:white;
+}
+
+.secondary{
+border:2px solid #d90429;
+color:#d90429;
+background:white;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.info-bar{
+margin-top:-45px;
+position:relative;
+z-index:10;
+}
+
+.info-grid{
+max-width:1300px;
+margin:auto;
+background:#d90429;
+border-radius:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+padding:35px;
+color:white;
+gap:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.18);
+}
+
+.info-item h3{
+margin-bottom:8px;
+font-size:22px;
+}
+
+section{
+padding:90px 30px;
+max-width:1300px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card-content{
+padding:25px;
+}
+
+.card-content h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.card-content p{
+color:#555;
+line-height:1.7;
+}
+
+.brand-row{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:35px;
+}
+
+.brand{
+background:white;
+padding:18px 30px;
+border-radius:50px;
+font-weight:800;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.contact{
+background:white;
+border-radius:30px;
+padding:50px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+input, textarea, select{
+width:100%;
+padding:16px;
+border-radius:12px;
+border:1px solid #ddd;
+margin-bottom:15px;
+font-size:16px;
+}
+
+button{
+border:none;
+cursor:pointer;
+}
+
+.floating-buttons{
+position:fixed;
+right:20px;
+bottom:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:9999;
+}
+
+.float-btn{
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+color:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.phone{
+background:#d90429;
+}
+
+.messenger{
+background:#0084ff;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:35px;
+margin-top:50px;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:900px){
+
+header{
+padding:20px;
+flex-direction:column;
+gap:20px;
+}
+
+nav{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero{
+padding:20px;
+}
+
+.hero-box h2{
+font-size:42px;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo-area">
+<img src="logo.jpeg" class="logo">
+<div class="logo-text">
+<h1>NÉMETH KLÍMATECHNIKA</h1>
+<p>Németh Ákos E.V.</p>
+</div>
+</div>
+
+<nav>
+<a href="#">Főoldal</a>
+<a href="#">Szolgáltatások</a>
+<a href="#">Árak</a>
+<a href="#">Márkák</a>
+<a href="#">Kapcsolat</a>
+</nav>
+
+<a href="tel:+36204104956" class="call-btn">+36 20 410 4956</a>
+</header>
+
+<section class="hero">
+<div class="hero-box">
+<h2>Tökéletes klíma,<br><span class="red">tökéletes otthon!</span></h2>
+
+<p>
+Klímatelepítés • Karbantartás • Tisztítás • Javítás
+</p>
+
+<div class="hero-buttons">
+<a href="tel:+36204104956" class="btn primary">Hívás most</a>
+<a href="#ajanlat" class="btn secondary">Ajánlatkérés</a>
+</div>
+</div>
+</section>
+
+<div class="info-bar">
+<div class="info-grid">
+<div class="info-item">
+<h3>Bács-Kiskun megye</h3>
+<p>Teljes területen vállalok munkát.</p>
+</div>
+
+<div class="info-item">
+<h3>Helyszíni felmérés</h3>
+<p>Pontos ajánlat készítéséhez szükséges.</p>
+</div>
+
+<div class="info-item">
+<h3>Minőségi munka</h3>
+<p>Garanciával és precíz kivitelezéssel.</p>
+</div>
+
+<div class="info-item">
+<h3>Hosszú élettartam</h3>
+<p>Rendszeres karbantartással.</p>
+</div>
+</div>
+</div>
+
+<section>
+<div class="section-title">
+<h2>Szolgáltatások</h2>
+<p>Professzionális klímaszerelés modern megoldásokkal</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<img src="telepites.jpg">
+<div class="card-content">
+<h3>Klímatelepítés</h3>
+<p>
+Alapszerelés 3 méter csövezésig:<br><br>
+Saját gép esetén: <strong>70.000 Ft</strong><br>
+Hozott készülék esetén: <strong>90.000 Ft</strong>
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="karbantartas.jpg">
+<div class="card-content">
+<h3>Karbantartás</h3>
+<p>
+Professzionális tisztítás és fertőtlenítés a hatékonyabb működésért.
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="javitas.jpg">
+<div class="card-content">
+<h3>Hibaelhárítás</h3>
+<p>
+Gyors és megbízható javítás klímaberendezésekhez.
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="section-title">
+<h2>Forgalmazott márkák</h2>
+</div>
+
+<div class="brand-row">
+<div class="brand">GREE</div>
+<div class="brand">MIDEA</div>
+<div class="brand">SYEN</div>
+<div class="brand">KASSAI</div>
+<div class="brand">AUX</div>
+<div class="brand">DAIKIN</div>
+<div class="brand">MDV</div>
+</div>
+</section>
+
+<section id="ajanlat">
+<div class="contact">
+
+<div class="section-title">
+<h2>Ajánlatkérés</h2>
+<p>Kérj gyors visszahívást</p>
+</div>
+
+<div class="contact-grid">
+
+<div>
+<h3 style="margin-bottom:20px;font-size:32px;">Kapcsolat</h3><p style="font-size:22px;font-weight:700;margin-bottom:20px;">Németh Ákos E.V.</p>
+<p style="margin-bottom:15px;">📞 +36 20 410 4956</p>
+<p style="margin-bottom:15px;">📧 nemethklimaev@gmail.com</p>
+<p style="margin-bottom:15px;">📍 Bács-Kiskun megye</p>
+</div>
+
+<form>
+<input type="text" placeholder="Név">
+<input type="tel" placeholder="Telefonszám">
+<select>
+<option>Klímatelepítés</option>
+<option>Karbantartás</option>
+<option>Tisztítás</option>
+<option>Javítás</option>
+</select>
+<textarea rows="5" placeholder="Írd le röviden mire lenne szükséged..."></textarea>
+
+<button class="btn primary" type="submit">Ajánlatot kérek</button>
+</form>
+
+</div>
+</div>
+</section>
+
+<div class="floating-buttons">
+<a href="tel:+36204104956" class="float-btn phone">📞</a>
+<a href="#" class="float-btn messenger">💬</a>
+</div>
+
+<footer>
+© 2026 Németh Klímatechnika — Minden jog fenntartva.
+</footer>
+
+</body>
+</html>
